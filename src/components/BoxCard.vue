@@ -32,15 +32,19 @@
         <!-- /FLAGS -->
       </li>
       <li>
-        <strong>Voto:{{ info.vote_average }}</strong>
+        <strong><star-vote :vote="info.vote_average" /></strong>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import StarVote from "./StarVote.vue";
 export default {
   name: "BoxCard",
+  components: {
+    StarVote,
+  },
   props: {
     info: Object,
     // info' object per gli array di oggetti filtrati
