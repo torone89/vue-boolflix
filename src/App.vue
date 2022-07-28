@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <base-header />
+    <the-main />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BaseHeader from "./components/BaseHeader.vue";
+import TheMain from "./components/TheMain.vue";
+// Import Sass
+import "./assets/sass/style.scss";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    BaseHeader,
+    TheMain,
+  },
+};
 </script>
 
 <style lang="scss">
