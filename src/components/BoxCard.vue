@@ -2,6 +2,13 @@
   <div class="hello">
     <ul>
       <li>
+        <!-- STAMPO IMG -->
+        <img
+          id=""
+          :src="`http://image.tmdb.org/t/p/w342/${info.poster_path}`"
+        />
+      </li>
+      <li>
         <strong
           >Titolo: {{ type === "movie" ? info.title : info.name }}
         </strong>
