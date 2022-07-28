@@ -1,9 +1,16 @@
 <template>
-  <div class="hello"></div>
+  <div class="prova">
+    <!-- COMPONENTE PER CREARE LE CART E V-FOR LOGICA -->
+    <box-card />
+  </div>
 </template>
 
 <script>
+import BoxCard from "./BoxCard.vue";
 export default {
+  components: {
+    BoxCard,
+  },
   name: "TheMain",
   props: {},
 };
