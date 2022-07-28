@@ -1,7 +1,26 @@
 <template>
-  <div class="prova">
+  <div class="film">
     <!-- COMPONENTE PER CREARE LE CART E V-FOR LOGICA -->
-    <box-card />
+    <!-- / FILM -->
+    <div>
+      <box-card
+        v-for="movie in movies"
+        :key="movie.id"
+        :info="movie"
+        :type="'movie'"
+        :languages="languages"
+      />
+    </div>
+
+    <!-- SERIE TV -->
+    <div>
+      <cards-box
+        v-for="serie in series"
+        :key="serie.id"
+        :info="serie"
+        :type="'serie'"
+      />
+    </div>
   </div>
 </template>
 
@@ -12,7 +31,11 @@ export default {
     BoxCard,
   },
   name: "TheMain",
-  props: {},
+  props: {
+    movies: Array, // importiamo i dati dal padre App.Vue
+    series: Array,
+    languages: Array,
+  },
 };
 </script>
 
