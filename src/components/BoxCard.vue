@@ -18,7 +18,7 @@
         <!-- FLAGS -->
         <img
           v-if="languages.includes(info.original_language)"
-          :src="`../assets/img/flags${info.original_language}.png`"
+          :src="`/img/flags/${info.original_language}.png`"
           alt="flags"
         />
         <span class="text-uppercase" v-else> {{ info.original_language }}</span>

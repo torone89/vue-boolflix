@@ -25,7 +25,7 @@ export default {
     return {
       movies: [], // Array Vuoto Film
       series: [], // Array Vuoto Serie
-      languages: [], // array di lingue con bandierina
+      languages: ["it", "en"], // array di lingue con bandierina
       api_key: "d4080a5258930f939fec89926b6aa52e", // API KEY DI AUTORIZZAZIONE MIA PERSONALE
     };
   },
