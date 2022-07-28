@@ -14,11 +14,12 @@
 
     <!-- SERIE TV -->
     <div>
-      <cards-box
+      <box-card
         v-for="serie in series"
         :key="serie.id"
         :info="serie"
         :type="'serie'"
+        :languages="languages"
       />
     </div>
   </div>

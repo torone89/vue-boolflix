@@ -12,7 +12,17 @@
         {{ type === "movie" ? info.original_title : info.original_name }}
       </li>
       <li>
-        <strong>Lingua: {{ info.original_language }}</strong>
+        <strong>Lingue:</strong>
+        <!-- Cambio La bandiera a seconda se è inclusa nella mia cartella Flags o no , se no stampo la mia stringa    -->
+
+        <!-- FLAGS -->
+        <img
+          v-if="languages.includes(info.original_language)"
+          :src="`../assets/img/flags${info.original_language}.png`"
+          alt="flags"
+        />
+        <span class="text-uppercase" v-else> {{ info.original_language }}</span>
+        <!-- /FLAGS -->
       </li>
       <li>
         <strong>Voto:{{ info.vote_average }}</strong>
@@ -28,6 +38,7 @@ export default {
     info: Object,
     // info' object per gli array di oggetti filtrati
     type: String, // Stringa per differenziare movie/serie
+    languages: Array,
   },
 };
 </script>
