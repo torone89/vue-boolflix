@@ -50,7 +50,7 @@
             <strong><star-vote :vote="info.vote_average" /></strong>
           </li>
           <li>
-            <div class="panoramic">
+            <div class="panoramic me-2">
               <strong>Overview:</strong> {{ info.overview }}
             </div>
           </li>
@@ -97,7 +97,6 @@ export default {
     transform: scale(1.1);
     transition: transform 0.4s;
     background-color: rgba(0, 0, 0, 0.2);
-    opacity: 0.6;
   }
 }
 
@@ -112,7 +111,7 @@ export default {
   display: block;
 }
 .panoramic {
-  max-height: 270px;
+  max-height: 240px;
   overflow-y: auto;
 }
 
