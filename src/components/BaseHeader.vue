@@ -73,7 +73,7 @@ export default {
 @import "@/assets/sass/style.scss";
 header {
   height: 80px;
-  background-color: $bg-color-header;
+  background-color: $bg-color-black;
 }
 img {
   max-height: 50px;

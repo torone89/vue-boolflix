@@ -1,28 +1,37 @@
 <template>
-  <div class="film">
-    <!-- COMPONENTE PER CREARE LE CART E V-FOR LOGICA -->
-    <!-- / FILM -->
-    <div>
-      <box-card
-        v-for="movie in movies"
-        :key="movie.id"
-        :info="movie"
-        :type="'movie'"
-        :languages="languages"
-      />
-    </div>
+  <main>
+    <div class="container">
+      <!-- COMPONENTE PER CREARE LE CART E V-FOR LOGICA -->
+      <!-- / FILM -->
 
-    <!-- SERIE TV -->
-    <div>
-      <box-card
-        v-for="serie in series"
-        :key="serie.id"
-        :info="serie"
-        :type="'serie'"
-        :languages="languages"
-      />
+      <div>
+        <h4 class="text-light text-center p-4">Film:</h4>
+      </div>
+      <div class="row justify-space-between">
+        <box-card
+          v-for="movie in movies"
+          :key="movie.id"
+          :info="movie"
+          :type="'movie'"
+          :languages="languages"
+        />
+      </div>
+
+      <!-- SERIE TV -->
+      <div>
+        <h4 class="text-light text-center p-5">Serie Tv:</h4>
+      </div>
+      <div class="row justify-space-between">
+        <box-card
+          v-for="serie in series"
+          :key="serie.id"
+          :info="serie"
+          :type="'serie'"
+          :languages="languages"
+        />
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
