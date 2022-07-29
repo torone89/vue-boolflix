@@ -2,7 +2,11 @@
   <!-- STARS -->
   <div>
     <strong>Voto:</strong>
-    <i v-for="star in starsCalc" :key="star" class="fas fa-star ms-1"></i>
+    <i
+      v-for="star in starsCalc"
+      :key="star"
+      class="fas fa-star ms-1 fa-yellow"
+    ></i>
   </div>
   <!-- / STARS -->
 </template>
@@ -23,3 +27,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.fa-yellow {
+  color: yellow;
+}
+</style>

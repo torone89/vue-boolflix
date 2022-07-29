@@ -2,8 +2,16 @@
   <div class="col-4 m-bcol d-flex justify-content-center">
     <div class="card h-100">
       <figure class="margin-0">
+        <!-- se il link dell'img ha valore === null  stampa un immagine senza copertina -->
         <img
           class="copertina_img img-fluid"
+          v-if="info.poster_path === null"
+          src="/copertinanondisponibile.jpeg"
+          alt="posterNotAvaible"
+        />
+        <img
+          class="copertina_img img-fluid"
+          v-else
           :src="`http://image.tmdb.org/t/p/w342/${info.poster_path}`"
         />
       </figure>
@@ -41,6 +49,11 @@
           <li class="py-1">
             <strong><star-vote :vote="info.vote_average" /></strong>
           </li>
+          <li>
+            <div class="panoramic">
+              <strong>Overview:</strong> {{ info.overview }}
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -71,7 +84,6 @@ export default {
 }
 .card {
   background-color: $bg-color-black;
-  opacity: 1;
   max-height: 460px;
 
   .copertina_img {
@@ -81,10 +93,11 @@ export default {
 
   &:hover {
     border: 1px solid $primary-color;
-    opacity: 0.2;
     width: 342px;
     transform: scale(1.1);
     transition: transform 0.4s;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0.6;
   }
 }
 
@@ -97,6 +110,10 @@ export default {
 }
 .card:hover .show {
   display: block;
+}
+.panoramic {
+  max-height: 270px;
+  overflow-y: auto;
 }
 
 .flag {
