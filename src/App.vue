@@ -27,6 +27,7 @@ export default {
       series: [], // Array Vuoto Serie
       languages: ["it", "en"], // array di lingue con bandierina
       api_key: "d4080a5258930f939fec89926b6aa52e", // API KEY DI AUTORIZZAZIONE MIA PERSONALE
+      baseUri: "https://api.themoviedb.org/3",
     };
   },
 
@@ -36,9 +37,10 @@ export default {
       const params = {
         query: query,
         api_key: this.api_key,
+        baseUri: "https://api.themoviedb.org/3",
       };
       return axios
-        .get(`https://api.themoviedb.org/3/search/movie`, { params })
+        .get(`${this.baseUri}/search/movie`, { params })
         .then((response) => {
           this.movies = response.data.results; // api call -> salva nell'array vuoto 'movies' i dati ricevuti in risposta da axios
         });
@@ -59,6 +61,11 @@ export default {
 
     // FUNZIONE GENERALIZZA PER LA RICERCA
     Search(query) {
+      // Controllo e svuoto
+      if (!query) {
+        this.movies = this.series = [];
+        return;
+      }
       this.searchSeries(query);
       this.searchMovies(query);
     },
@@ -67,12 +74,4 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
