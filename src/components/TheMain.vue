@@ -14,6 +14,7 @@
           :info="movie"
           :type="'movie'"
           :languages="languages"
+          :cast="GetCast(movie.id)"
         />
       </div>
 
@@ -28,6 +29,7 @@
           :info="serie"
           :type="'serie'"
           :languages="languages"
+          :cast="GetCastTV(serie.id)"
         />
       </div>
     </div>
@@ -35,6 +37,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 import BoxCard from "./BoxCard.vue";
 export default {
   components: {
@@ -45,6 +49,33 @@ export default {
     movies: Array, // importiamo i dati dal padre App.Vue
     series: Array,
     languages: Array,
+  },
+  methods: {
+    // FUNZIONE PER OTTENERE IL CAST DALL'api Key
+    GetCast(id) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=d4080a5258930f939fec89926b6aa52e`
+        )
+        .then((results) => {
+          this.cast = results.data.cast;
+          // MAssimo 5 Elementi del cast
+          this.cast?.splice(5);
+        });
+      return this.cast;
+    },
+    GetCastTV(id) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/tv/${id}/credits?api_key=d4080a5258930f939fec89926b6aa52e`
+        )
+        .then((results) => {
+          this.cast = results.data.cast;
+          // MAssimo 5 Elementi del cast
+          this.cast?.splice(5);
+        });
+      return this.cast;
+    },
   },
 };
 </script>

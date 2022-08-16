@@ -49,6 +49,12 @@
           <li class="py-1">
             <strong><star-vote :vote="info.vote_average" /></strong>
           </li>
+          <!-- CAST -->
+          <!-- <li>
+            <span class="fw-bold">Cast:</span> -->
+          <!-- TROVO GLI ATTORI -->
+          <!-- <span v-for="actor in cast" :key="actor.id">{{ actor.name }}</span>
+          </li> -->
           <!-- OVERVIEW -->
           <!-- VERIFICO SE HO INFO O No -->
           <li v-if="info.overview != ''">
@@ -77,7 +83,7 @@ export default {
     // info' object per gli array di oggetti filtrati
     type: String, // Stringa per differenziare movie/serie
     languages: Array,
-    casts: Array,
+    cast: Array, // Cast
   },
 };
 </script>
