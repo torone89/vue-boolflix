@@ -2,7 +2,10 @@
   <!-- STARS -->
   <div>
     <strong>Voto:</strong>
+    <!-- VERIFICO SE E' Presente un voto o no -->
+    <span v-if="vote == 0"> Non disponibile</span>
     <i
+      v-else
       v-for="star in starsCalc"
       :key="star"
       class="fas fa-star ms-1 fa-yellow"
@@ -31,5 +34,8 @@ export default {
 <style lang="scss">
 .fa-yellow {
   color: yellow;
+}
+span {
+  font-weight: 400;
 }
 </style>

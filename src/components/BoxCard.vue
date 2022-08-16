@@ -44,15 +44,20 @@
             <span class="text-uppercase" v-else>
               {{ info.original_language }}</span
             >
-            <!-- /FLAGS -->
           </li>
+          <!-- /VOTO -->
           <li class="py-1">
             <strong><star-vote :vote="info.vote_average" /></strong>
           </li>
-          <li>
+          <!-- OVERVIEW -->
+          <!-- VERIFICO SE HO INFO O No -->
+          <li v-if="info.overview != ''">
             <div class="panoramic me-2">
               <strong>Overview:</strong> {{ info.overview }}
             </div>
+          </li>
+          <li v-else>
+            <strong>Overview:</strong> Nessuna informazione disponibile
           </li>
         </ul>
       </div>
@@ -72,6 +77,7 @@ export default {
     // info' object per gli array di oggetti filtrati
     type: String, // Stringa per differenziare movie/serie
     languages: Array,
+    casts: Array,
   },
 };
 </script>
@@ -87,8 +93,8 @@ export default {
   max-height: 460px;
 
   .copertina_img {
-    max-width: 342px;
-    max-height: 460px;
+    width: 342px;
+    height: 460px;
   }
 
   &:hover {
