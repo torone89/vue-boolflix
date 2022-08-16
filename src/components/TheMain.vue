@@ -5,7 +5,7 @@
       <!-- / FILM -->
 
       <div>
-        <h2 class="text-light py-4">FILM</h2>
+        <h2 class="text-light p-4">FILM</h2>
       </div>
       <div class="row justify-space-between">
         <box-card
@@ -19,7 +19,7 @@
 
       <!-- SERIE TV -->
       <div>
-        <h2 class="text-light py-4">SERIE TV</h2>
+        <h2 class="text-light p-4">SERIE TV</h2>
       </div>
       <div class="row justify-space-between">
         <box-card
