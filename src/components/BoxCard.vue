@@ -50,11 +50,12 @@
             <strong><star-vote :vote="info.vote_average" /></strong>
           </li>
           <!-- CAST -->
-          <!-- <li>
-            <span class="fw-bold">Cast:</span> -->
-          <!-- TROVO GLI ATTORI -->
-          <!-- <span v-for="actor in cast" :key="actor.id">{{ actor.name }}</span>
-          </li> -->
+
+          <li>
+            <span class="fw-bold">Cast:</span>
+            <!-- TROVO GLI ATTORI -->
+            <span v-for="actor in cast" :key="actor.id"> {{ actor.name }}</span>
+          </li>
           <!-- OVERVIEW -->
           <!-- VERIFICO SE HO INFO O No -->
           <li v-if="info.overview != ''">
@@ -73,17 +74,43 @@
 
 <script>
 import StarVote from "./StarVote.vue";
+import axios from "axios";
+
 export default {
   name: "BoxCard",
   components: {
     StarVote,
+  },
+  data() {
+    return {
+      cast: [],
+    };
   },
   props: {
     info: Object,
     // info' object per gli array di oggetti filtrati
     type: String, // Stringa per differenziare movie/serie
     languages: Array,
-    cast: Array, // Cast
+  },
+
+  methods: {
+    getCast() {
+      const type = this.info.title === "movie" ? "movie" : "tv";
+      axios
+        .get(
+          `https://api.themoviedb.org/3/${type}/${this.info.id}/credits?api_key=d4080a5258930f939fec89926b6aa52e`
+        )
+        .then((results) => {
+          const cast = results.data.cast;
+          // MAssimo 5 Elementi del cast
+          console.log(cast);
+          cast.splice(5);
+          this.cast = cast;
+        });
+    },
+  },
+  mounted() {
+    this.getCast();
   },
 };
 </script>
@@ -123,7 +150,7 @@ export default {
   display: block;
 }
 .panoramic {
-  max-height: 240px;
+  max-height: 180px;
   overflow-y: auto;
 }
 
