@@ -5,9 +5,9 @@
     <!-- VERIFICO SE E' Presente un voto o no -->
     <span v-if="vote == 0"> Non disponibile</span>
     <i
-      v-for="star in starsCalc"
+      v-for="star in 5"
       :key="star"
-      class="fas ms-1 fa-yellow fa-star"
+      class="ms-1 fa-yellow fa-star"
       :class="renderStar(star)"
     >
     </i>
@@ -32,8 +32,8 @@ export default {
   },
   methods: {
     renderStar(star) {
-      const iconType = this.vote >= star ? "fa-solid" : "fa-regular";
-      return iconType + "fa-star";
+      const iconTypes = this.starsCalc >= star ? "fa-solid" : "fa-regular";
+      return iconTypes;
     },
   },
 };
